@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+<h3>{{resultat.name}} informations</h3>
+<div class="container">
+<ul>
+    {% for k,v in resultat.items() %}
+    
+    {%if k=="slice-action"%}
+    <li>slice action: 
+    {%for e in v %}
+        <ul>
+            <li>slice name: {{e["slice-name"]}}</li>
+            <li>permission: {{e["permission"]}}</li>
+        </ul>
+       {% endfor %}
+    </li>
+    {% elif k=="match" %}
+    <li>match: 
+       
+        <ul>
+            <li> wildcards: {{v["wildcards"]}}</li>
+            <li> in port: {{v["in_port"]}} </li>
+        </ul>
+        
+    </li>
+    {% elif k=="queues" %}
+    <li>match: 
+       {% for e in v %}
+        <ul>
+            <li> queues: {{v}}</li>
+        </ul>
+        {% endfor %}
+    </li>
+    {% else %}
+        <li>{{k}}: <b>{{v}}</b></li>
+    {% endif %} 
+
+    {% endfor %}
+</ul>
+
+</div>
+{% endblock %}
+
+{"force-enqueue": -1, "name": "dpid3-port1", "slice-action": [{"slice-name": "dsi", "permission": 7}], "queues": [], "priority": 1, "dpid": "00:00:00:00:00:00:00:03", "id": 4, "match": {"wildcards": 4194302, "in_port": 1}}

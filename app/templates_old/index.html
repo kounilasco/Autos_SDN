@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - SDN</title>
+    {% else %}
+    <title>Welcome to AUTOS</title>
+    {% endif %}
+	<style>
+        body {
+            background:white;
+            color:blue;
+        }
+	table,tr,td,th {
+		border: 1px solid black;
+		border-collapse:collapse;
+	}
+	a{
+		text-decoration:none;
+	}
+    </style>
+  </head>
+  <body>
+
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li style="color:green">{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+
+
+      <h1> Liste des switchs conectés</h1>
+	{% if dpids is iterable and dpids is not string %}
+	  {% for k,v in dpids.items() %}
+	    <div><p>{{k}}: <b>{{ v }}</b></p></div>
+	  {% endfor %}
+	{% else %}
+		<b style="color:red">{{dpids}}</b>
+	{% endif %}
+	<h1> Liste des slices</h1>
+	<table class="tabl">
+		<tr><th>Nom du slice</th><th>status</th></tr>
+		{% if slices is iterable and slices is not string %}
+			{% for s in slices %}
+			    <tr><td><a href="{{ url_for('infoSlice',nom=s[0]) }}">{{ s[0] }}</a></td><td>{{ s[1] }}</b></td></tr>
+			{% endfor %}
+		{% else %}
+			<b style="color:red">{{slices}}</b>
+		{% endif %}
+	</table>
+	<p><a href="{{url_for('createSlice')}}" style="texte-decoration:none"><input type="button" value="Create new slice"></p>
+     <h1> Liste des Flowspaces</h1>
+<table class="tabl">
+<tr><th>Id</th><th>Nom</th><th>Dpid</th></tr>
+  {% for k in flow %}
+    <tr><td>{{ k.id }}</td><td>{{ k.name }}</b></td><td>{{ k.dpid }}</td></tr>
+    {% endfor %}
+</table>
+
+  </body>
+</html>

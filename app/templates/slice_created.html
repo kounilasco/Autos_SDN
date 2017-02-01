@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="container">
+  	<h1> Liste des slices</h1>
+	<table class="table table-striped">
+		<tr><th>Nom du slice</th><th>status</th><th>Action</th></tr>
+		{% if slices is iterable and slices is not string %}
+			{% for s in slices %}
+			    <tr>
+                    <td><a href="{{ url_for('infoSlice',nom=s[0]) }}">{{ s[0] }}</a></td>
+                <td>{{ s[1] }}</b></td>
+                <td>
+                    <a href="{{ url_for('updateRequestSlice',nom=s[0]) }}"><i class="fa fa-pencil-square-o fa-fw"></i></a>
+                    <a href="{{ url_for('deleteSlice',nom=s[0],conf=0) }}"><i class="fa fa-trash-o fa-fw"></i></a>
+                    <a href="{{ url_for('infoSlice',nom=s[0]) }}"><i class="fa fa-eye fa-fw"></i></a>
+                 </td>
+                </tr>
+			{% endfor %}
+		{% else %}
+			<b style="color:red">{{slices}}</b>
+		{% endif %}
+	</table>
+
+</div>
+{% endblock %}

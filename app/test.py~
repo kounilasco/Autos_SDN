@@ -1,0 +1,20 @@
+from entities.manager import *
+from entities.slice import *
+import ast
+
+f=Flowspace()
+
+
+e={"name":"dsi","IpAddr":"127.0.0.1","port":"10003","mail":"test@neteam.ci","passwd":"test"}
+s=Slice(e)
+m=Manager()
+print m.updateSlice(s)
+#m.createFlowSpace(f)
+#a= m.getFlowSpace("etudiant")
+
+#print(dpid)
+#print(m.back["error"])
+#print f.getSlicePerm().keys()
+#print ast.literal_eval(a[0]).keys()
+#for e in a:
+#	print(e)

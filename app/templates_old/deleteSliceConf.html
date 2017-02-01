@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - SDN</title>
+    {% else %}
+    <title>Welcome to AUTOS</title>
+    {% endif %}
+	<style>
+        body {
+            background:white;
+            color:red;
+        }
+	a{
+		text-decoration:none;
+	}
+
+    </style>
+  </head>
+  <body>
+
+<div>
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li style="color:green">{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+	
+
+<h2>Do you really want to delete slice {{nom}} ?</h2>
+<p><a href="{{url_for('deleteSlice',nom=nom,conf=1)}}" style="texte-decoration:none"><input type="button" value="Yes"> </a><a href="{{url_for('infoSlice',nom=nom)}}" style="texte-decoration:none"><input type="button" value="Cancel"></a></p>
+</div>
+  </body>
+</html>

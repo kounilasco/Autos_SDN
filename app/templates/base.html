@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{title}}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel=stylesheet type=text/css href="{{url_for('static',filename='css/bootstrap_css/bootstrap.min.css')}}">
+    <link rel=stylesheet type=text/css href="{{url_for('static',filename='css/bootstrap_css/bootstrap-grid.min.css')}}">
+    <link rel=stylesheet type=text/css href="{{url_for('static',filename='css/bootstrap_css/bootstrap-reboot.min.css')}}">
+     <link rel=stylesheet type=text/css href="{{url_for('static',filename='fa/css/font-awesome.min.css')}}">  
+  </head>
+  <body style="background-color: #a8cee6;">
+      <div class="container">
+      <!--Header of the page-->
+      <header >
+          <div class="navbar-fixed" >
+        <nav class="navbar-light bg-faded" style="background-color:#0b0b0b ;border: 1px solid #0b0b0b">
+            <div class="d-flex flex-row align-content-around flex-wrap">
+                
+                <div class="d-flex flex-row ml-3 align-items-center align-content-around flex-wrap">
+                    <div class="p-0">
+                        <a class="navbar-brand" href="#">
+                            <img src="{{url_for('static',filename='images/logo_innov.png')}}" width="120" height="70" class="d-inline-block align-top" alt=""/>
+                        </a>
+                    </div>
+                </div>
+                <div class="d-flex flex-row ml-auto align-items-center">
+                  <div class="p-2" style="font-family: fantasy; color:#42779b">
+                              <h3>Automated slicing for</h3>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row p-2 align-items-center align-content-around flex-wrap">
+                  <!--<div class="p-2">
+                    Automated slicing for
+                  </div>-->
+                        <div class="p-0" style="background-color:;">
+                            <a class="navbar-brand" href="#">
+                                <img src="{{url_for('static',filename='images/logo_sdn.png')}}" width="115" height="60" class="d-inline-block align-top" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row ml-auto p-0 align-items-center align-content-around flex-wrap">
+                        <div class="p-0">
+                            <a class="navbar-brand" href="#">
+                                <img src="{{url_for('static',filename='images/logo_irisa.jpg')}}" width="160" height="60" class="d-inline-block align-top" alt=""/>
+                            </a>
+                        </div>
+                    </div>  
+
+             </div>
+        </nav>
+          </div>
+      </header>
+
+      <!--content of the code-->
+      <div class="container">
+          <div class="row">
+
+              <!--barre des menus-->
+             <div class="col-4 mt-2">
+                <div class="row">   
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header text-center" style="background-color: #efc431" >
+                                <h4 class="card-title">Dashboard</h4>
+                            </div>
+                            <div class="card-block">
+                                <ul class="list-group list-group-flush">
+                                    {% for menuItem in menu %}
+                                    <li class="list-group-item"><a href="{{menuItem.link}}">{{menuItem.list | title}}</a></li>
+                                    
+                                    {% endfor %}
+                                    <li class="list-group-item"><a href="refreshFv">REFRESH FLOWVISOR &nbsp;&nbsp;<i class="fa fa-refresh"></i></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--repeter les blocs du codé gauche-->
+                <div class="row mt-2">   
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header text-center" style="background-color: #efc431" >
+                                <h4 class="card-title">Actions</h4>
+                            </div>
+                            
+                            <div class="card-block">
+                                <ul class="list-group list-group-flush">
+                                   {% for menuItem in menu1 %}
+                                    <li class="list-group-item"><a href="{{menuItem.link}}">{{menuItem.list|title}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+             </div>
+             
+              <!--fin barre de menu-->
+
+              <!--Contenu a afficher-->
+               <div class="col-8 mt-2">
+                   <div class="card">
+                            <div class="card-header text-center" style="background-color:#0b0b0b;color: white; border: 2px solid #0b0b0b">
+                                <h4 class="card-title">Display</h4>
+                            </div>
+                            <div class="card-block">
+
+                               {% block container %}{% endblock %} 
+
+                          </div>
+                  
+                </div>
+             </div>
+             <!--fin contenu a afficher-->
+          </div>
+      
+
+
+
+
+
+      </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="{{ url_for('static', filename='js/jquery-3.1.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.validate.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sliceValidation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Tether.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </body>
+</html>
