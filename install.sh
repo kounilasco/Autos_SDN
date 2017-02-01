@@ -33,7 +33,7 @@ cp neteam.py $HOME/mininet/custom
 #deploiment des regles de routage pour le slice de test "dsi"
 cp dsi_controller.py $HOME/pox/ext
 #deploiement de l'environnement python pour l'application web
-tar -xzvf Autos.tar.gz -C $HOME/Autos
+tar -xzvf Autos.tar.gz -C $HOME/Autos_SDN
 ./autos_env_install.sh
 #service flowvisor restart
 #cd ~
