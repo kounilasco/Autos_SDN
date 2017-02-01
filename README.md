@@ -1,4 +1,3 @@
-
 <p> 
 bienvenu dans le programme d'installation de l'application web Autos.
 si vous lisez ce fichier c'est que vous avez déjà dezipé l'archive :)
