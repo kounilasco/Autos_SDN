@@ -1,4 +1,4 @@
-<div style="font-size:22px"> 
+<b> Les tests on été concluant sus ubuntu 14.04 LTS </b> 
 <p> 
 bienvenu dans le programme d'installation de l'application web Autos.
 si vous lisez ce fichier c'est que vous avez déjà dezipé l'archive :)
@@ -23,4 +23,4 @@ Pour l'installation de l'application et de son environnement complet:
 <li>faites les tests </li>
 </ol>
 </p>
-</div> 
+
