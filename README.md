@@ -1,6 +1,6 @@
-<b> Les tests on été concluant sus ubuntu 14.04 LTS </b> 
+<b> Les tests on été concluant sous ubuntu 14.04 LTS </b> 
 <p> 
-bienvenu dans le programme d'installation de l'application web Autos.
+Bienvenu dans le programme d'installation de l'application web Autos.
 si vous lisez ce fichier c'est que vous avez déjà dezipé l'archive :)
 </p>
 <p>
