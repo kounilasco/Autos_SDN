@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="container">
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li style="color:green">{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+<h1> Liste des Flowspaces</h1>
+<form name="" method="post" action="">
+{{ form.hidden_tag() }}
+      <div class="row">
+        <div class="col-3">{{ form.nom_slice(class='form-control form-control-sucess')}}</div>
+        <div class="col-3"><input type="submit" class="btn btn-success" value="submit"></div>
+      </div>
+</form>
+<table class="table table-striped">
+<tr><th>Id</th><th>Nom</th><th>Dpid</th><th>Slice(s)</th><th>Action</th></tr>
+  {% if flows is iterable and flows is not string %}
+  {% for k in flows %}
+    <tr>
+      <td>{{ k.id }}</td>
+      <td>{{ k.name }}</b></td>
+      <td>{{ k.dpid }}</td>
+      <td>{% for s in k["slice-action"] %}{{ s["slice-name"] }}{% endfor %}</td>
+      <td>
+          <a href="#"><i class="fa fa-pencil-square-o fa-fw"></i></a>
+          <a href="{{url_for('deleteFlowspace',nom=k.name,response=0)}}"><i class="fa fa-trash-o fa-fw"></i></a>
+          <a href="{{url_for('showFlowspace',nom=k.name)}}"><i class="fa fa-eye fa-fw"></i></a>
+      </td>
+
+    </tr>
+    {% endfor %}
+    {% else %}
+	<b style="color:red">{{slices}}</b>
+    {% endif %}
+</table>
+
+</div>
+{% endblock %}
