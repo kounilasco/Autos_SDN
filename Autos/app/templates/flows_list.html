@@ -22,7 +22,7 @@
 </form>
 <table class="table table-striped">
 <tr><th>Id</th><th>Nom</th><th>Dpid</th><th>Slice(s)</th><th>Action</th></tr>
-  {% if flows is iterable and flows is not string %}
+{% if flows is iterable and flows is not string %}
   {% for k in flows %}
     <tr>
       <td>{{ k.id }}</td>
@@ -37,9 +37,9 @@
 
     </tr>
     {% endfor %}
-    {% else %}
+   {% else %}
 	<b style="color:red">{{slices}}</b>
-    {% endif %}
+   {% endif %}
 </table>
 
 </div>
